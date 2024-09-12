@@ -38,7 +38,7 @@ class CategoryController extends Controller
     {
         Category::create($request->validated());
 
-        return redirect()->route('category.index');
+        return redirect()->route('category.index')->with("status", "Category created successfully");
     }
 
     /**
@@ -64,7 +64,7 @@ class CategoryController extends Controller
     {
         $category->update($request->validated());
 
-        return redirect()->route('category.index');
+        return redirect()->route('category.index')->with("status", "Category updated successfully");
     }
 
     /**
@@ -73,6 +73,6 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->route('category.index');
+        return redirect()->route('category.index')->with("status", "Category deleted successfully");
     }
 }

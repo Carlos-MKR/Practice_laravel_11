@@ -82,7 +82,7 @@ class PostController extends Controller
         ]);
         */
 
-        return redirect()->route('post.index');
+        return redirect()->route('post.index')->with("status", "Post created successfully");
     }
 
     /**
@@ -118,7 +118,7 @@ class PostController extends Controller
 
         $post->update($data);
 
-        return redirect()->route('post.index');
+        return redirect()->route('post.index')->with("status", "Post updated successfully");
     }
 
     /**
@@ -127,6 +127,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect()->route('post.index');
+        return redirect()->route('post.index')->with("status", "Post deleted successfully");
     }
 }
